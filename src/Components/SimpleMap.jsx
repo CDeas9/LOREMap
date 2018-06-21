@@ -6,14 +6,14 @@ const {
   withGoogleMap,
   GoogleMap,
   Marker,
-  InfoWindow,
+
 } = require("react-google-maps");
-const MapWithAMarkedInfoWindow = compose(
+const Map = compose(
   withProps({
     googleMapURL:
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
+    containerElement: <div style={{ height: `400px`, width: '1000px' }} />,
     mapElement: <div style={{ height: `100%` }} />
   }),
   withStateHandlers(() => ({
@@ -31,16 +31,12 @@ const MapWithAMarkedInfoWindow = compose(
     defaultCenter={{ lat: 42, lng: -39 }}
   >
     <Marker
-      position={{ lat: -34.397, lng: 150.644 }}
-      onClick={props.onToggleOpen}
+      position={{ lat: 38.130963, lng: -85.841403 }}
     >
-      {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
-        "Episode 1"
-      </InfoWindow>}
     </Marker>
   </GoogleMap>
 );
-<MapWithAMarkedInfoWindow
+<Map
   googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
   loadingElement={<div style={{ height: `100%` }} />}
   containerElement={<div style={{ height: `400px` }} />}
@@ -48,4 +44,4 @@ const MapWithAMarkedInfoWindow = compose(
 />
 
 
-export default MapWithAMarkedInfoWindow;
+export default Map;
